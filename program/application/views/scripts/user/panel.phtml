@@ -1,0 +1,21 @@
+<div id = ''>
+	<?php 
+		if($this -> identity){
+			echo "你好,<a  class = 'aa' href = '/user/account/id/".$this -> identity->id."' class = 'aa'>".$this -> identity->username."</a>,欢迎登录！    ".
+					"<a href = '/user/logout' class = 'aa' >注销</a>  ";
+			
+		}else{
+			echo "<a href = '/user/login' class = 'aa'>  登录   </a><a href = '/user/register'  class = 'aa'	>   注册   </a> ";
+		}
+	?>
+</div>
+<style>
+	.aa{
+		font-weight :bold;text-decoration:none;
+		color:black;
+	}	
+	a{
+		text-decoration:none;
+		font-weight :bold;
+	}
+</style>

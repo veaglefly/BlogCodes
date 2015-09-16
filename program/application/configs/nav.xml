@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configdata>
+    <home>
+        <label>首页</label>
+        <controller>index</controller>
+        <action>index</action>
+    </home>
+    <about>
+        <label>关于我</label>
+        <controller>about</controller>
+        <action>index</action>
+       
+    </about>
+    <!-- <news>
+        <label>新闻动态</label>
+        <controller>news</controller>
+        <action>index</action>
+    </news>
+    <community>
+        <label>社区</label>
+        <controller>community</controller>
+        <action>index</action>
+    </community> -->
+    <blog>
+        <label>学习记录</label>
+        <controller>blog</controller>
+        <action>index</action>
+    </blog>
+    <article>
+        <label>文章汇总</label>
+        <controller>article</controller>
+        <action>index</action>
+    </article>
+     
+    <resource>
+        <label>免费资源</label>
+        <controller>source</controller>
+        <action>index</action>
+    </resource>
+    <life>
+        <label>生活随笔</label>
+        <controller>life</controller>
+        <action>index</action>
+    </life>
+    <now>
+        <label>目前状态</label>
+        <controller>now</controller>
+        <action>index</action>
+    </now>
+</configdata>

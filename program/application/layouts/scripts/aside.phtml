@@ -1,0 +1,63 @@
+ <h3 style = 'font-size:10pt;font-weight: bold;'>分类</h3>
+ <?php  echo $this->navigation()// ->breadcrumbs()->setLinkLast(false)->setMinDepth(0)->render();?>
+ <div class = 'calendar'>
+ <?php //万年历的实现 
+
+	$year = date("Y");
+	$mon = date("m");
+	$today = date("d");
+	$day = date("t",mktime(0,0,0,$mon,1,$year));//获取当月天数
+	$w = date("w",mktime(0,0,0,$mon,1,$year));//获取当前月是星期几
+ 	echo "<h2 style ='text-align:center;font-size:10pt;font-weight: bold;border-bottom:1px solid black;'>{$year} 年 {$mon} 月 {$today} 日</h2>";
+ 	echo "<table width = '160'height ='80' border = '0'>";
+ 	echo "<tr>";
+ 	echo "<th style = 'color:#ff0000;'>日</th>";
+ 	echo "<th>一</th>";
+	echo "<th>二</th>";
+	echo "<th>三</th>";
+ 	echo "<th>四</th>";
+ 	echo "<th>五</th>";
+ 	echo "<th style = 'color:#008000;'>六</th>";
+	   
+ 	echo "</tr>";
+
+ 	$dd = 1;
+ 	while($dd<=$day)
+ 	{  
+	 	echo "<tr>";
+	 	//输出一周的信息
+    	for($i=0;$i<7;$i++){
+			if($dd<=$day&&($w<=$i||$dd!=1)){//这里理解起来比较有点难度，第I个是为了排除后面空格输出，后面判断排除前面星期空格输出。
+         	if($dd == $today)//当前日期背景色为黄色。
+				{
+		   	  echo "<td style = 'background-color:yellow;'>{$dd}</td>";
+				 $dd++;
+		    	 }
+				 else{
+			 echo "<td>{$dd}</td>";
+	    	 $dd++;}
+		 
+			 }
+			 else
+			{
+			 echo "<td>&nbsp;</td>";
+			 }
+  	}
+  	echo "</tr>";
+ 	}
+
+
+ 	echo "</table>";
+ 
+  
+?>   
+</div>
+ 
+<div class = 'otherlink'>
+ <h3 style = 'font-size:10pt;font-weight: bold;'>其他链接</h3>
+ <ul style = ''>
+ 	<li><a href = ''>我的代码库</a></li>
+ 	<li><a href = ''>我的小工具</a></li>
+ 	 
+ </ul>
+</div>

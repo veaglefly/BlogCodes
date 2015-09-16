@@ -1,0 +1,96 @@
+<?php 
+	// 博客标题
+	
+	echo "<div class='blogTitle'><h3>".$this->blog->title."</h3>";
+   // 作者
+	$auth = Zend_Auth::getInstance();
+    if ($auth->hasIdentity()) {
+      	if($auth->getIdentity()->id == $this->blog->uid){
+			echo "<div class = 'panel'>";
+			echo" <span><a href='/blog/delete/id/".$this->blog->id."'>删除</a></span> | ";
+			echo "<span><a href='/blog/update/id/".$this->blog->id."'>更新</a></span>";
+			echo "</div>";
+       	}
+    }
+	echo "</div>";
+	echo "<div class='blogBody'>";
+    // 分类
+	if ($this->blog->name){
+		echo "<span class='info'><a href='/category/view/cid/".$this->blog->cid."'>".$this->blog->name."</a></span> ";
+	}
+	else {
+		echo "<span class='info'>无分类</span>";
+		
+	}
+	echo "<span class = 'info'>".date("Y年m月d日 h点m分",$this->blog->createtime)."</span> ";
+	echo "<span class = 'info'><a href='/user/account/id/".$this->blog->uid."'>".$this->blog->username."</a></span> ";
+	
+	echo "<hr />";
+	// 博客内容
+	echo $this->blog->body;
+	echo "</div>";
+	
+	// tags
+	if ($this->tags){
+		echo "<br />Tags: ";
+		foreach($this->tags as $tag){
+			echo "<span style = 'color:red;text-decoration:underline;'><a>".$tag->tag."</a></span>  ";
+		}
+	
+	}
+	// 评论
+	echo "<div>";
+	if ($this->comments){
+		foreach ($this->comments as $comment){
+			echo "<h4>".$comment->name."说：</h4>";
+			echo $comment->comment;
+		}
+	}
+
+	echo "</div>"
+?>
+  <hr>
+<form name = 'formCaptcha' action = '/blog/view/id/<?= $this -> blog->id?>/captcha_code/<?php echo $this -> captcha_code;?>' method = 'post'>
+   <table>
+   		<tr>
+   			<td>
+   				用户名称:
+   			</td>
+   			<td>
+   				<input  type = 'text' name = 'name'/>
+   			</td>
+   		</tr>
+   		<tr>
+   			<td>
+   				电子邮箱：
+   			</td>
+   			<td>
+   				<input type = 'text' name = 'email'/>
+   			</td>
+   		</tr>
+   		<tr>
+   			<td>
+   				评论内容：
+   			</td>
+   			<td>
+   				<textarea name = 'comment' rows = '5' cols = '60'></textarea>
+   			</td>
+   		</tr>
+   		<tr>
+   			<td>
+   				验证码：
+   			</td>
+   			<td>
+   				 <input type = 'text' name = 'captcha'/>
+   				 <span id = 'captcha'><img src = "/<?php echo $this -> img_dir,$this->captcha_id?>.png" border = '0'/></span>
+   			</td>
+   		</tr>
+   		<tr>
+   			 
+   			<td>
+   				 <input type = 'submit' name = 'submit' value = '提交'/>
+   			</td>
+   		</tr>
+   	 
+   </table>
+</form>

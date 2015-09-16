@@ -1,0 +1,25 @@
+<h3>用户信息</h3>
+<?php 
+ 	$result = $this -> user;
+ 	 
+	echo "用户名：".$result[0][username];
+	echo "</br>电子邮箱：".$result[0][email];
+	echo "</br>注册日期：".date('Y-m-d',$result[0][time_reg])."</br>";
+ 
+	?>
+	<?php
+        $auth = Zend_Auth::getInstance();
+        if ($auth->hasIdentity()) {
+            if($auth->getIdentity()->role != 'guest'){
+				if($auth->getIdentity()->id == $result[0][id]){ ?>
+        			<a href="/../user/update/id/<?php echo $result[0][id]; ?>">更改个人资料</a> | <a href="/../user/changePassword/id/<?php echo $result[0][id];?>">更改密码</a><br />
+        	<?php
+             }
+                echo "邮箱：".$result[0][email]."<br />";	
+            }
+            // 作者
+            
+        }
+		 
+       // echo "上次登录：".date('Y-m-d',$result->time_last)."<br />";
+        ?>

@@ -1,0 +1,16 @@
+<?php
+    $result = $this->categories;
+
+    if($result){
+    	foreach ($result as $category){
+    		echo "<dl class = 'listCategory'>";
+    		$num = substr_count($category->path, ',');
+    		if($num > 0){
+    		    
+    		}else {
+    			echo "<dt>".$category->name."</dt>";
+    		}
+    		echo "</dl>";
+    	}
+    }
+?>

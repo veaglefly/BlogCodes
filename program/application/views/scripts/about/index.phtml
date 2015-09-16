@@ -1,0 +1,13 @@
+<?php 
+    $result= $this->aboutPages;
+    if($result){
+    	foreach($result as $aboutPage){
+    		echo "<h3>".$aboutPage->title."</h3>";
+    	    echo "<hr>";
+    		echo $aboutPage->body;
+    	}
+    }
+    else{
+    	echo "尚无文章！";
+    }
+?>

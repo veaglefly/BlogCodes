@@ -1,0 +1,16 @@
+<?php 
+    $result = $this->page;
+ 
+    echo "<h2>".$result[0]['title']."</h2>";
+    echo "<span>发表于:".date('Y-m-d',$result[0]['createtime'])."</span>"."</br>";
+    
+    
+    echo $result[0]['body'];
+    
+    
+    echo "<h3>其他新闻</h3>";
+    $res = $this->pages;
+    if($res){
+    	echo $this ->partialLoop('partials/row-pages.phtml',$res);
+    }
+?>

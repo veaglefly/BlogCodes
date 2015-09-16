@@ -1,0 +1,18 @@
+<?php 
+	foreach ($this -> blogs as $blog){
+		echo "<div>";
+		echo "<h2  class = 'blogSummary'><a href = '/blog/view/id/".$blog['id']."'>".$blog['title']."</a></h2>";
+		if(mb_strlen($blog['body']) >  400){
+			echo mb_substr(strip_tags($blog['body']," "), 0,  400,'utf-8')."......";//注意这里允许空格
+			echo "<span class = 'more_blog'><a style ='color:red;' href = '/blog/view/id/".$blog['id']."'>阅读全文>></a></span>";
+			echo "<hr>";
+		}else{
+			echo strip_tags($blog['body'],"<p>");
+		}
+		echo "</div>";
+	}
+	if (count($this->blogs) > 1){
+		echo $this->paginationControl($this->blogs,'Sliding','partials/pagination-control.phtml');
+	
+	}
+?>

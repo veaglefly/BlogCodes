@@ -1,0 +1,13 @@
+
+  
+  <?php
+	echo "<h3>".$this->newsStar->title."</h3>";
+	echo $this->newsStar->body;
+	
+    if ($this->newsList){
+        echo "<ul class = 'listNews'>";
+            echo $this->partialLoop('partials/row-pages.phtml', $this->newsList);
+        echo "</ul>";
+    }
+?>
+  

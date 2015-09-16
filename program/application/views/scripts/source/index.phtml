@@ -1,0 +1,12 @@
+<?php 
+	foreach ($this -> blogs as $blog){
+		echo "<div class = 'blogSummary'>";
+		echo "<h3><a href = '/source/view/id/".$blog['id']."'>".$blog['title']."</a></h3>";
+		 
+		echo "</div>";
+	}
+	if (count($this->blogs) > 1){
+		echo $this->paginationControl($this->blogs,'Sliding','partials/pagination-control.phtml');
+	
+	}
+?>

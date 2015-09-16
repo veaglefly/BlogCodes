@@ -1,0 +1,42 @@
+ <link rel="stylesheet" type="text/css" href="/js/ueditor/third-party/syntaxhighlighter/shCoreDefault.css" /> 
+    <script type="text/javascript" src="/js/ueditor/third-party/syntaxhighlighter/shCore.js"></script> 
+    <script> SyntaxHighlighter.all(); </script>
+
+<?php 
+	// 博客标题
+	
+	echo "<div class='blogTitle'><h3>".$this->blog->title."</h3>";
+   // 作者
+	$auth = Zend_Auth::getInstance();
+    if ($auth->hasIdentity()) {
+      	if($auth->getIdentity()->id == $this->blog->uid){
+			echo "<div class = 'panel'>";
+			echo" <span><a href='/source/delete/id/".$this->blog->id."'>删除</a></span> | ";
+			echo "<span><a href='/source/update/id/".$this->blog->id."'>更新</a></span>";
+			echo "</div>";
+       	}
+    }
+	echo "</div>";
+	echo "<div class='blogBody'>";
+    // 分类
+	if ($this->blog->name){
+		echo "<span class='info'><a style = 'color:red;text-decoration:underline'>".$this->blog->name."</a></span> ";
+	}
+	else {
+		echo "<span class='info'>无分类</span>";
+		
+	}
+	echo "<span class = 'info'>".date("Y年m月d日 h点m分",$this->blog->createtime)."</span> ";
+	echo "<span class = 'info'><a>".$this->blog->username."</a></span> ";
+	
+	echo "<hr />";
+	// 博客内容
+	echo $this->blog->body;
+	echo "</div>";
+	
+	// tags
+	 
+
+	echo "</div>"
+?>
+  

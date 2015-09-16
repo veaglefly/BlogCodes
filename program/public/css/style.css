@@ -1,0 +1,123 @@
+body,a{
+font-size: 10pt;
+color: #444;
+}
+#Home{
+	width:95%;
+	margin: 0px auto;
+	min-width:930px;
+}
+h2,h3,h4,h5{
+	font-size: 100%;
+	font-weight: normal;
+}
+.header{
+	border-top: 4px solid black;
+	border-bottom: 1px solid black;
+	padding-bottom: 5px;
+	margin-top: 10px;
+}
+.BlogTitle{
+	height: 60px;
+	clear: both;
+}
+.BlogTitle h1{
+	font-size: 150%	;
+	font-weight: bold;
+	line-height: 1.5em;
+	margin-left: 1em;
+	margin-top: 10px;
+ 
+}
+.BlogTitle h2{
+	margin-left: 4em;
+	line-height: 1.5em;
+ 
+}
+.header h7{
+	 font-color:black;
+	
+}
+.content{
+	 height:auto;
+	 width:100%;
+	 margin:0 auto;
+	 overflow: hidden;
+  
+}
+.blogSummary{
+	font-weight:bold;
+}
+.aside{
+	float:left;
+	display:inline;
+	  	 
+	width:15%;
+	height:auto;
+	overflow:auto;	
+	font-size:18px;
+}
+.aside h3{
+	text-align:center;
+	border-bottom:1px solid black;
+}
+.right{
+	  
+	float:right;
+	display:inline;
+ 
+	width:84%;
+	height:auto;
+	 
+	margin-bottom:100px;
+}
+.footer{
+	 
+	 margin: 0px auto;
+}
+.ulli{
+	list-style:none;
+}
+dl.listCategory{
+	 
+	height:30;
+	background:#EEE;
+	line-height:30px;
+ 
+}
+dl.listCategory dt{
+	 
+	border:1px solid black;
+	float:right;
+	display:inline;
+	width:200px;
+	
+}
+#nav ul{
+	height:20px;
+}
+ #nav li{
+	list-style:none;
+ 	 
+ 	width:100px;
+ 	display:inline;
+ 	float:right;
+ 	font-size:22px;
+ 	font-style:normal;
+ }
+#nav li ul a, #nav li.sfHover ul a { display:none; background: #fdfd8f;  color: #666; font-size: 22px;}
+#nav li:hover a, #nav li.sfHover a {z-index:-1; display: block; background: #fdfd8f;  color: #000; }
+ .me{
+ 	text-align: center;
+	min-height: 15px;
+	border-top: 1px solid #000;
+	margin-top: 10px;
+	padding-top: 10px;
+	margin-bottom: 10px;
+ }
+ .calendar{
+ 	font-size: 10pt;
+ }
+ .more_blog{
+ 	color:red;
+ }

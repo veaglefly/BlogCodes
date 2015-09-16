@@ -1,0 +1,53 @@
+<?php if ($this->pageCount){
+// you need to add each of the request parameters to url
+$params = Zend_Controller_Front::getInstance()->getRequest()->getParams();
+// remove the system parameters
+unset($params['module']);
+unset($params['controller']);
+unset($params['action']);
+?>
+<style >
+.aa{
+	margin-top:30px;
+	
+}
+a{
+	text-decoration:none;
+}
+</style>
+<div class="paginationControl aa" >
+<?php if($this->current!=$this->first):?>
+    <a class="pagination" id="page_last" href='<?php echo $this->url(array('page'=>$this->first))?>'>首页</a>
+<?php endif; ?>
+<!-- Previous page link -->
+<?php if (isset($this->previous)){ ?>
+<a href="<?php echo $this->url(array_merge(
+$params, array('page' => $this->previous))); ?>">
+&lt; 前一页</a> |
+<?php } else { ?>
+<span class="disabled">&lt;前一页 </span> |
+<?php } ?>
+<!-- Numbered page links -->
+<?php foreach ($this->pagesInRange as $page){ ?>
+<?php if ($page != $this->current){ ?>
+<a href="<?php echo $this->url(array_merge($params,
+array('page' => $page))); ?>">
+<?php echo $page; ?>
+</a> |
+<?php } else { ?>
+<?php echo $page; ?> |
+<?php }}?>
+<!-- Next page link -->
+<?php if (isset($this->next)){ ?>
+<a href="<?php echo $this->url(
+array_merge($params, array('page' => $this->next))); ?>">
+后一页&gt;
+</a>
+<?php } else { ?>
+<span class="disabled">后一页&gt;</span>
+<?php } ?>
+<?php if($this->current!=$this->last):?>
+    <a class="pagination" id="page_last" href='<?php echo $this->url(array('page'=>$this->last))?>'>末页</a>
+<?php endif; ?>
+</div>
+<?php } ?>
